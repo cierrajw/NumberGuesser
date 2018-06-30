@@ -1,12 +1,11 @@
-// BAD CODE: var userGuess = parseInt(document.getElementById("userGuess")).value;
 
-// can use document.querySelector("h1") can use h1 (selector) or #id or .class, etc.
 
 var userGuess = document.getElementById("userGuess");
 
 var button = document.getElementById("submitButton");
 
-var theNumber = Math.floor((Math.random()*10) + 1);
+//Randomly generate a whole number from 1 to 100
+var theNumber = Math.floor((Math.random()* (100 - 1) + 1));
 
 console.log(theNumber);
 
@@ -20,7 +19,7 @@ console.log(theNumber);
 
 button.addEventListener("click", function () {
 
-	event.preventDefault ();
+	 event.preventDefault();
 
 	var answer = parseInt(userGuess.value); 
 
@@ -30,59 +29,33 @@ button.addEventListener("click", function () {
 
 	if(answer > theNumber){
 		console.log("That is too high");
+		document.getElementById("result").innerHTML = "That is too high";
 	}
 	else if (answer < theNumber){
+
+		var toolow = "That is too low";
 		console.log("That is too low");
+		document.getElementById("result").innerHTML = "That is too low";
 	}
 	else{
 		console.log("BOOM!!!");
+		document.getElementById("result").innerHTML = "BOOM!!!";
 		}
+		
 	}
 	else{
 		console.log("Please enter a number between 1 and 100");
+		document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
 	}
 	// return answer;
 	console.log(answer);
 });
 
+//------------------------------------------------------ NOTES:---------------------------------------------
 
+// BAD CODE: var userGuess = parseInt(document.getElementById("userGuess")).value;
 
-
-
-// button.addEventListener("click", function () {
-
-// 	event.preventDefault ();
-
-// 	var answer = parseInt(userGuess.value); 
-
-// 	document.getElementById("output").innerHTML = answer;
-
-// 	if((answer >= 1) && (answer <= 100)){
-
-// 	if(answer === theNumber){
-// 		console.log("BOOM!");
-
-// 	}
-// 	else if(answer > theNumber){
-// 		console.log("That is too high");
-// 	}
-// 	else if (answer < theNumber){
-// 		console.log("That is too low");
-// 	}
-// 	else{
-// 		console.log("whateva");
-// 		}
-// 	}
-// 	else{
-// 		console.log("Please enter a number between 1 and 100");
-// 	}
-// 	// return answer;
-// 	console.log(answer);
-
-// });
-
-
-
+// can use document.querySelector("h1") can use h1 (selector) or #id or .class, etc.
 
 	//can change HTML input to make sure it's a number instead
 	// else if(theNumber == isNaN(userGuess)){
