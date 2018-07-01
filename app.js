@@ -1,34 +1,29 @@
-
-
 var userGuess = document.getElementById("userGuess");
 
 var button = document.getElementById("submitButton");
 
 //Randomly generate a whole number from 1 to 100
-var theNumber = Math.floor((Math.random()* (100 - 1) + 1));
+var theNumber = Math.floor((Math.random()* (101 - 1) + 1));
 
 console.log(theNumber);
 
-// var tooHigh = "That is too high";
-// var tooLow = "That is too low";
-
-// document.getElementById("result").innerHTML = ;
-
-// var displayGuess = document.getElementById("output").innerHTML;
-
-
 button.addEventListener("click", function () {
 
-	 event.preventDefault();
+	event.preventDefault();
 
 	var answer = parseInt(userGuess.value); 
 
-	document.getElementById("output").innerHTML = answer;
-
 	if((answer >= 1) && (answer <= 100)){
+
+		var lastGuessMessage = "Your last guess was";
+
+		document.getElementById("lastGuess").innerHTML = lastGuessMessage;
+
+		document.getElementById("output").innerHTML = answer;
 
 	if(answer > theNumber){
 		console.log("That is too high");
+		lastGuessMessage;
 		document.getElementById("result").innerHTML = "That is too high";
 	}
 	else if (answer < theNumber){
@@ -41,9 +36,9 @@ button.addEventListener("click", function () {
 		console.log("BOOM!!!");
 		document.getElementById("result").innerHTML = "BOOM!!!";
 		}
-		
 	}
 	else{
+
 		console.log("Please enter a number between 1 and 100");
 		document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
 	}
@@ -51,7 +46,8 @@ button.addEventListener("click", function () {
 	console.log(answer);
 });
 
-//------------------------------------------------------ NOTES:---------------------------------------------
+
+//-------------------------------- NOTES:---------------------------
 
 // BAD CODE: var userGuess = parseInt(document.getElementById("userGuess")).value;
 

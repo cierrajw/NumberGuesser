@@ -1,4 +1,40 @@
+body{
+	margin: 0;
+}
 section{
 	display: inline-block;
 	margin: 0 auto;
+}
+header h1{
+	 background-color: #404041;
+	 margin-top: 0;
+	 height: 2em;
+	 text-align: center;
+	 color: #ED458B;
+	 padding-top: 1em;
+}
+.buttons{
+	background-color: #929497;
+	height: 3.5em;
+	width: 15em;
+	border-radius: 3em;
+}
+.buttons:hover{
+	background-color: #eb008b
+}
+#userGuess{
+	height: 3em;
+	width: 30em;
+	margin-bottom: 3em;
+	margin-top: 2em;
+}
+#resetButton{
+	width: 32em;
+	height: 3em;
+}
+#submitButton{
+	margin-right: 2em;
+}
+#output{
+	font-size: 5em;
 }
