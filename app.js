@@ -1,50 +1,71 @@
-var userGuess = document.getElementById("userGuess");
 
-var button = document.getElementById("submitButton");
 
-//Randomly generate a whole number from 1 to 100
-var theNumber = Math.floor((Math.random()* (101 - 1) + 1));
+function getRange(userMin, userMax){
 
-console.log(theNumber);
+	userMin = document.getElementById("rangemin").innerHTML;
+	userMax = document.getElementById("rangemax").innerHTML;
+
+	var minValue = parseInt(minNum.value);
+	var maxValue = parseInt(maxNum.value);
+ 
+	var range = userMax - userMin;
+
+	return range;
+
+}
+
 
 button.addEventListener("click", function () {
 
-	event.preventDefault();
+	var theNumber = Math.floor((Math.random()* (101 - 1) + 1));
+
+	var userGuess = document.getElementById("userGuess");
+
+	var button = document.getElementById("submitButton");
 
 	var answer = parseInt(userGuess.value); 
 
+	event.preventDefault();
+
 	if((answer >= 1) && (answer <= 100)){
 
-		var lastGuessMessage = "Your last guess was";
-
-		document.getElementById("lastGuess").innerHTML = lastGuessMessage;
+		document.getElementById("lastGuess").innerHTML = "Your last guess was";
 
 		document.getElementById("output").innerHTML = answer;
 
 	if(answer > theNumber){
 		console.log("That is too high");
-		lastGuessMessage;
 		document.getElementById("result").innerHTML = "That is too high";
 	}
 	else if (answer < theNumber){
-
 		var toolow = "That is too low";
 		console.log("That is too low");
 		document.getElementById("result").innerHTML = "That is too low";
 	}
 	else{
-		console.log("BOOM!!!");
-		document.getElementById("result").innerHTML = "BOOM!!!";
+		console.log("BOOM goes the dynamite!!!");
+		document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
 		}
 	}
 	else{
-
 		console.log("Please enter a number between 1 and 100");
 		document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
 	}
-	// return answer;
 	console.log(answer);
 });
+
+function resetValues(){
+
+	reset = document.getElementById("resetButton").innerHTML;
+
+	userGuess.reset();
+	document.getElementById("lastGuess").reset();
+	document.getElementById("output").reset();
+}
+
+reset.addEventListener("click", resetValues){
+
+}
 
 
 //-------------------------------- NOTES:---------------------------

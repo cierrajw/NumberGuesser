@@ -1,10 +1,27 @@
 body{
 	margin: 0;
 }
-section{
-	display: inline-block;
-	margin: 0 auto;
+/*section{
+	margin: 0px auto;
+	float: none;
+	display: table;
+}*/
+#lastGuess{
+	margin-bottom: 0px;
 }
+span{
+	color: #e6e7e8;
+}
+#output{
+	color: #ED458B;
+	font-size: 10rem;
+	margin-bottom: 1em;
+}
+/*section{
+	display: table;
+	border: 1px solid blue;
+	margin: 0 auto;
+}*/
 header h1{
 	 background-color: #404041;
 	 margin-top: 0;
@@ -34,7 +51,4 @@ header h1{
 }
 #submitButton{
 	margin-right: 2em;
-}
-#output{
-	font-size: 5em;
 }
