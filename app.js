@@ -1,29 +1,54 @@
 
-
-function getRange(userMin, userMax){
-
-	userMin = document.getElementById("rangemin").innerHTML;
-	userMax = document.getElementById("rangemax").innerHTML;
-
-	var minValue = parseInt(minNum.value);
-	var maxValue = parseInt(maxNum.value);
- 
-	var range = userMax - userMin;
-
-	return range;
-
-}
-
-
-button.addEventListener("click", function () {
-
-	var theNumber = Math.floor((Math.random()* (101 - 1) + 1));
-
-	var userGuess = document.getElementById("userGuess");
+	
+	//Declaring a bunch of random global variables because I don't understand functional programming yet but I want to//
 
 	var button = document.getElementById("submitButton");
 
+	var userGuess = document.getElementById("userGuess");
+
 	var answer = parseInt(userGuess.value); 
+
+	userMin = document.getElementById("rangemin").innerHTML;
+
+	userMax = document.getElementById("rangemax").innerHTML;
+
+	// var reset = document.getElementById("resetButton").value;
+
+	// var clear = document.getElementById("clearButton").value;
+
+
+// 	function disableButtons(){
+
+// 	if(answer == null){
+// 		document.getElementById("resetButton").disabled = true;
+// 	}
+// 	else{
+// 		document.getElementById("resetButton").disabled = false;
+// 	}
+
+
+// 	// document.getElementById("clearButton").value = true
+
+// 	// clear.value.disabled = true;
+
+// 	// if(answer != null){
+
+// 	// 	buttonClick();
+// 	// }
+// 	// else{
+
+// 	// 	reset.disabled = true;
+// 	// 	clear.disabled = true;
+// 	// }
+// 	console.log("Reset button value: " + resetButton.value);
+// }
+
+// disableButtons();
+	
+
+function buttonClick(){
+
+	var theNumber = Math.floor((Math.random() * 101));
 
 	event.preventDefault();
 
@@ -48,24 +73,42 @@ button.addEventListener("click", function () {
 		}
 	}
 	else{
-		console.log("Please enter a number between 1 and 100");
+		// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
+		// document.getElementById("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
 		document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
+		}
+	// console.log("User range: " + userMin.value + "to " + userMax.value);
+
+	console.log("Answer:" + answer);
+
 	}
-	console.log(answer);
-});
 
-function resetValues(){
 
-	reset = document.getElementById("resetButton").innerHTML;
+	button.addEventListener("click", buttonClick);
 
-	userGuess.reset();
-	document.getElementById("lastGuess").reset();
-	document.getElementById("output").reset();
-}
 
-reset.addEventListener("click", resetValues){
 
-}
+	//Creating an event on the submit button that will evaluate the user's answers (range, too high, too low, match, etc.)
+	// button.addEventListener("click", buttonClick);
+
+	// //Resetting all values/displays on the screen
+	// function resetValues(){
+
+	// reset = document.getElementById("resetButton").innerHTML;
+
+	// userGuess.reset();
+	// document.getElementById("lastGuess").reset();
+	// document.getElementById("output").reset();
+	// }
+
+	//Event for the reset button to reset values
+	// reset.addEventListener("click", resetValues){
+
+	// }
+
+	
+
+	
 
 
 //-------------------------------- NOTES:---------------------------
