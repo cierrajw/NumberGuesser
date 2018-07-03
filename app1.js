@@ -1,15 +1,121 @@
 
 //Declaring a bunch of random global variables because I don't understand functional programming yet but I want to//
 
-var button = document.getElementById("submitButton");
 
-var userGuess = document.getElementById("userGuess");
+var button = document.querySelector("#submitButton");
 
-var answer = parseInt(userGuess.value); 
+userMin = document.querySelector("#rangemin").innerHTML;
 
-userMin = document.getElementById("rangemin").innerHTML;
+userMax = document.querySelector("#rangemax").innerHTML;
 
-userMax = document.getElementById("rangemax").innerHTML;
+setRange = document.querySelector("#setRange");
+
+setRange.addEventListener('click', function(){
+
+	userGuess.disabled = false;
+	button.disabled = false;
+
+	theMin = parseInt(userMin.value);
+	theMax = parseInt(userMax.value);
+
+	console.log("User min: " + theMin);
+	console.log("User max: " + theMax);
+
+})
+
+function activateResetClear(){
+
+	if(userGuess && userGuess.value){
+	resetButton.disabled = false;
+	clearButton.disabled = false;
+	}
+
+}
+
+function buttonClick(){
+
+	event.preventDefault();
+
+	var userGuess = document.querySelector("#userGuess");
+
+	var answer = parseInt(userGuess.value); 
+
+	var theNumber = Math.floor((Math.random() * 101));
+
+	document.querySelector("#lastGuess").innerHTML = "Your last guess was";
+
+	document.querySelector("#output").innerHTML = answer;
+
+	if((answer >= 1) && (answer <= 100)){
+
+		if(answer > theNumber){
+		console.log("That is too high");
+		document.querySelector("#result").innerHTML = "That is too high";
+		}
+		else if (answer < theNumber){
+		var toolow = "That is too low";
+		console.log("That is too low");
+		document.querySelector("#result").innerHTML = "That is too low";
+		}
+		else{
+		console.log("BOOM goes the dynamite!!!");
+		document.querySelector("#result").innerHTML = "BOOM goes the dynamite!!!";
+		}
+
+	}
+
+	else{
+		// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
+		// document.querySelector("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
+		document.querySelector("#result").innerHTML = "Please enter a number between 1 and 100";
+		}		
+
+		console.log("Answer:" + answer);
+
+}
+
+button.addEventListener("click", buttonClick);
+
+
+
+// function buttonClick(){
+
+// event.preventDefault();
+
+// var theNumber = Math.floor((Math.random() * 101));
+
+// if((answer >= 1) && (answer <= 100)){
+
+// document.getElementById("lastGuess").innerHTML = "Your last guess was";
+
+// document.getElementById("output").innerHTML = answer;
+
+// if(answer > theNumber){
+// console.log("That is too high");
+// document.getElementById("result").innerHTML = "That is too high";
+// }
+// else if (answer < theNumber){
+// var toolow = "That is too low";
+// console.log("That is too low");
+// document.getElementById("result").innerHTML = "That is too low";
+// }
+// else{
+// console.log("BOOM goes the dynamite!!!");
+// document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
+// 	}
+// }
+// else{
+// // console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
+// // document.getElementById("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
+// document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
+// }
+// // console.log("User range: " + userMin.value + "to " + userMax.value);
+
+// console.log("Answer:" + answer);
+
+// }
+
+
 
 // var reset = document.getElementById("resetButton").value;
 
@@ -43,46 +149,6 @@ userMax = document.getElementById("rangemax").innerHTML;
 // }
 
 // disableButtons();
-
-function buttonClick(){
-
-var theNumber = Math.floor((Math.random() * 101));
-
-event.preventDefault();
-
-if((answer >= 1) && (answer <= 100)){
-
-document.getElementById("lastGuess").innerHTML = "Your last guess was";
-
-document.getElementById("output").innerHTML = answer;
-
-if(answer > theNumber){
-console.log("That is too high");
-document.getElementById("result").innerHTML = "That is too high";
-}
-else if (answer < theNumber){
-var toolow = "That is too low";
-console.log("That is too low");
-document.getElementById("result").innerHTML = "That is too low";
-}
-else{
-console.log("BOOM goes the dynamite!!!");
-document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
-}
-}
-else{
-// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
-// document.getElementById("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
-document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
-}
-// console.log("User range: " + userMin.value + "to " + userMax.value);
-
-console.log("Answer:" + answer);
-
-}
-
-
-button.addEventListener("click", buttonClick);
 
 
 
