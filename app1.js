@@ -1,69 +1,110 @@
-// function getRange(userMin, userMax){
 
-// 	userMin = document.getElementById("rangemin").innerHTML;
-// 	userMax = document.getElementById("rangemax").innerHTML;
+//Declaring a bunch of random global variables because I don't understand functional programming yet but I want to//
 
-// 	var minValue = parseInt(minNum.value);
-// 	var maxValue = parseInt(maxNum.value);
- 
-// 	var range = userMax - userMin;
+var button = document.getElementById("submitButton");
 
-// 	return range;
+var userGuess = document.getElementById("userGuess");
 
+var answer = parseInt(userGuess.value); 
+
+userMin = document.getElementById("rangemin").innerHTML;
+
+userMax = document.getElementById("rangemax").innerHTML;
+
+// var reset = document.getElementById("resetButton").value;
+
+// var clear = document.getElementById("clearButton").value;
+
+
+// function disableButtons(){
+
+// if(answer == null){
+// document.getElementById("resetButton").disabled = true;
+// }
+// else{
+// document.getElementById("resetButton").disabled = false;
 // }
 
-	var button = document.getElementById("submitButton");
+
+// // document.getElementById("clearButton").value = true
+
+// // clear.value.disabled = true;
+
+// // if(answer != null){
+
+// // buttonClick();
+// // }
+// // else{
+
+// // reset.disabled = true;
+// // clear.disabled = true;
+// // }
+// console.log("Reset button value: " + resetButton.value);
+// }
+
+// disableButtons();
+
+function buttonClick(){
+
+var theNumber = Math.floor((Math.random() * 101));
+
+event.preventDefault();
+
+if((answer >= 1) && (answer <= 100)){
+
+document.getElementById("lastGuess").innerHTML = "Your last guess was";
+
+document.getElementById("output").innerHTML = answer;
+
+if(answer > theNumber){
+console.log("That is too high");
+document.getElementById("result").innerHTML = "That is too high";
+}
+else if (answer < theNumber){
+var toolow = "That is too low";
+console.log("That is too low");
+document.getElementById("result").innerHTML = "That is too low";
+}
+else{
+console.log("BOOM goes the dynamite!!!");
+document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
+}
+}
+else{
+// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
+// document.getElementById("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
+document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
+}
+// console.log("User range: " + userMin.value + "to " + userMax.value);
+
+console.log("Answer:" + answer);
+
+}
 
 
-button.addEventListener("click", function () {
+button.addEventListener("click", buttonClick);
 
-	var theNumber = Math.floor((Math.random()* (101 - 1) + 1));
 
-	var userGuess = document.getElementById("userGuess");
 
-	var answer = parseInt(userGuess.value); 
+//Creating an event on the submit button that will evaluate the user's answers (range, too high, too low, match, etc.)
+// button.addEventListener("click", buttonClick);
 
-	event.preventDefault();
-
-	if((answer >= 1) && (answer <= 100)){
-
-		document.getElementById("lastGuess").innerHTML = "Your last guess was";
-
-		document.getElementById("output").innerHTML = answer;
-
-	if(answer > theNumber){
-		console.log("That is too high");
-		document.getElementById("result").innerHTML = "That is too high";
-	}
-	else if (answer < theNumber){
-		var toolow = "That is too low";
-		console.log("That is too low");
-		document.getElementById("result").innerHTML = "That is too low";
-	}
-	else{
-		console.log("BOOM goes the dynamite!!!");
-		document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
-		}
-	}
-	else{
-		console.log("Please enter a number between 1 and 100");
-		document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
-	}
-	console.log(answer);
-});
-
+// //Resetting all values/displays on the screen
 // function resetValues(){
 
-// 	reset = document.getElementById("resetButton").innerHTML;
+// reset = document.getElementById("resetButton").innerHTML;
 
-// 	userGuess.reset();
-// 	document.getElementById("lastGuess").reset();
-// 	document.getElementById("output").reset();
+// userGuess.reset();
+// document.getElementById("lastGuess").reset();
+// document.getElementById("output").reset();
 // }
 
+//Event for the reset button to reset values
 // reset.addEventListener("click", resetValues){
 
 // }
+
+
 
 
 //-------------------------------- NOTES:---------------------------
@@ -72,39 +113,39 @@ button.addEventListener("click", function () {
 
 // can use document.querySelector("h1") can use h1 (selector) or #id or .class, etc.
 
-	//can change HTML input to make sure it's a number instead
-	// else if(theNumber == isNaN(userGuess)){
-	
-	// 	alert("Please enter an actual number");
-	// 	return "Please enter an actual number";
-	// }
+//can change HTML input to make sure it's a number instead
+// else if(theNumber == isNaN(userGuess)){
+// alert("Please enter an actual number");
+// return "Please enter an actual number";
+// }
 
 // Use switch statement? 
 
-	// switch(userGuess){
+// switch(userGuess){
 
-	// case userGuess > theNumber:
-	// alert("That is too high");
-	// return "That is too high";
-	// break;
+// case userGuess > theNumber:
+// alert("That is too high");
+// return "That is too high";
+// break;
 
-	// case userGuess < theNumber:
-	// alert("That is too low");
-	// return "That is too low";
-	// break;
+// case userGuess < theNumber:
+// alert("That is too low");
+// return "That is too low";
+// break;
 
-	// case ((theNumber < 1) || (theNumber > 100));
-	// alert("Enter a number between 1 and 100");
-	// return "Enter a number between 1 and 100";
+// case ((theNumber < 1) || (theNumber > 100));
+// alert("Enter a number between 1 and 100");
+// return "Enter a number between 1 and 100";
 
-	// case userGuess == isNaN(userGuess):
-	// return "You must enter a number!";
-	// break;
+// case userGuess == isNaN(userGuess):
+// return "You must enter a number!";
+// break;
 
-	// //Would this be the default instead?
-	// case userGuess == theNumber:
-	// alert("Boom!!!");
-	// return "BOOM!!!";
-	// break;
-	// }
+// //Would this be the default instead?
+// case userGuess == theNumber:
+// alert("Boom!!!");
+// return "BOOM!!!";
+// break;
+// }
+
 
