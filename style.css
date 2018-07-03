@@ -6,16 +6,19 @@ body{
 	float: none;
 	display: table;
 }*/
-#lastGuess{
-	margin-bottom: 0px;
-}
 span{
 	color: #e6e7e8;
 }
+main{
+}
+#result{
+	margin-top: 0px;
+}
 #output{
 	color: #ED458B;
-	font-size: 10rem;
-	margin-bottom: 1em;
+	font-size: 9rem;
+	margin: 0 auto;
+
 }
 /*section{
 	display: table;
