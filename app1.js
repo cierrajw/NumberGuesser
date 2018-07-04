@@ -25,7 +25,7 @@ function userRange(){
 
 	setRange.addEventListener('click', userRange);
 
-function activateResetClear(){
+	function activateResetClear(){
 
 	if(userGuess && userGuess.value){
 	resetButton.disabled = false;

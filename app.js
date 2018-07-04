@@ -68,7 +68,8 @@
 		}
 		}
 		else{
-		document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + " and " + theMax;
+		// document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + " and " + theMax;
+		document.querySelector("#result").innerHTML = "Please enter a number within your range";
 		}		
 
 		console.log("User guess:" + answer);

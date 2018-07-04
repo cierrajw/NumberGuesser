@@ -51,6 +51,7 @@ header h1{
 #resetButton{
 	width: 32em;
 	height: 3em;
+	margin-bottom: 2em;
 }
 #submitButton{
 	margin-right: 2em;
