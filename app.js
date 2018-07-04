@@ -2,15 +2,14 @@
 
 
 	var button = document.querySelector("#submitButton");
-
 	var userMin = document.querySelector("#rangemin");
 	var userMax = document.querySelector("#rangemax");
+	var setRange = document.querySelector("#setRange");
 
-	setRange = document.querySelector("#setRange");
 
 	//anon function for setRange button//
+	setRange.addEventListener('click', function(){
 
-	function userRange(){
 	var theMin = parseInt(userMin.value);
 	var theMax = parseInt(userMax.value);
 
@@ -20,20 +19,20 @@
 	console.log("User min: " + theMin);
 	console.log("User max: " + theMax);
 
-	}
-
-	setRange.addEventListener('click', userRange);
+	});
 
 	function activateResetClear(){
 
 	if(userGuess && userGuess.value){
 	resetButton.disabled = false;
 	clearButton.disabled = false;
-	}
+		}
 
 	}
 
-	function buttonClick(){
+	//anon submit button click event function//
+
+	button.addEventListener("click", function(){
 
 	event.preventDefault();
 
@@ -46,7 +45,7 @@
 	var theMax = parseInt(userMax.value);
 
 	var theNumber = Math.floor((Math.random() * (theMax - theMin) + theMin));
-	console.log(theNumber);
+	console.log("The random number: " + theNumber);
 
 	document.querySelector("#lastGuess").innerHTML = "Your last guess was";
 
@@ -67,15 +66,10 @@
 		console.log("BOOM goes the dynamite!!!");
 		document.querySelector("#result").innerHTML = "BOOM goes the dynamite!!!";
 		}
-
-	}
-	else{
-		// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
-		// document.querySelector("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
-		document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + "and " + theMax;
+		}
+		else{
+		document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + " and " + theMax;
 		}		
 
-		console.log("Answer:" + answer);
-	}
-
-	button.addEventListener("click", buttonClick);
+		console.log("User guess:" + answer);
+	});
