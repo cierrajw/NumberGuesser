@@ -1,27 +1,29 @@
 
-//Declaring a bunch of random global variables because I don't understand functional programming yet but I want to//
+	//Declaring a bunch of random global variables because I don't understand functional programming yet but I want to//
 
 
-var button = document.querySelector("#submitButton");
+	var button = document.querySelector("#submitButton");
 
-userMin = document.querySelector("#rangemin").innerHTML;
+	var userMin = document.querySelector("#rangemin");
+	var userMax = document.querySelector("#rangemax");
 
-userMax = document.querySelector("#rangemax").innerHTML;
+	setRange = document.querySelector("#setRange");
 
-setRange = document.querySelector("#setRange");
+	//anon function for setRange button//
 
-setRange.addEventListener('click', function(){
+function userRange(){
+	var theMin = parseInt(userMin.value);
+	var theMax = parseInt(userMax.value);
 
 	userGuess.disabled = false;
 	button.disabled = false;
 
-	theMin = parseInt(userMin.value);
-	theMax = parseInt(userMax.value);
-
 	console.log("User min: " + theMin);
 	console.log("User max: " + theMax);
 
-})
+	}
+
+	setRange.addEventListener('click', userRange);
 
 function activateResetClear(){
 
@@ -40,13 +42,18 @@ function buttonClick(){
 
 	var answer = parseInt(userGuess.value); 
 
-	var theNumber = Math.floor((Math.random() * 101));
+	var theMin = parseInt(userMin.value);
+
+	var theMax = parseInt(userMax.value);
+
+	var theNumber = Math.floor((Math.random() * (theMax - theMin) + theMin));
+	console.log(theNumber);
 
 	document.querySelector("#lastGuess").innerHTML = "Your last guess was";
 
 	document.querySelector("#output").innerHTML = answer;
 
-	if((answer >= 1) && (answer <= 100)){
+	if((answer >= theMin) && (answer <= theMax)){
 
 		if(answer > theNumber){
 		console.log("That is too high");
@@ -63,127 +70,32 @@ function buttonClick(){
 		}
 
 	}
-
 	else{
 		// console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
 		// document.querySelector("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
-		document.querySelector("#result").innerHTML = "Please enter a number between 1 and 100";
+		document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + "and " + theMax;
 		}		
 
 		console.log("Answer:" + answer);
+	}
 
-}
-
-button.addEventListener("click", buttonClick);
-
+	button.addEventListener("click", buttonClick);
 
 
-// function buttonClick(){
+	// function getRange(userMin, userMax){
 
-// event.preventDefault();
+// 	userMin = document.getElementById("rangemin").innerHTML;
+// 	userMax = document.getElementById("rangemax").innerHTML;
 
-// var theNumber = Math.floor((Math.random() * 101));
+// 	var minValue = parseInt(minNum.value);
+// 	var maxValue = parseInt(maxNum.value);
+ 
+// 	var range = userMax - userMin;
 
-// if((answer >= 1) && (answer <= 100)){
-
-// document.getElementById("lastGuess").innerHTML = "Your last guess was";
-
-// document.getElementById("output").innerHTML = answer;
-
-// if(answer > theNumber){
-// console.log("That is too high");
-// document.getElementById("result").innerHTML = "That is too high";
-// }
-// else if (answer < theNumber){
-// var toolow = "That is too low";
-// console.log("That is too low");
-// document.getElementById("result").innerHTML = "That is too low";
-// }
-// else{
-// console.log("BOOM goes the dynamite!!!");
-// document.getElementById("result").innerHTML = "BOOM goes the dynamite!!!";
-// 	}
-// }
-// else{
-// // console.log("Please enter a number between" + userMin.value + "and " + userMax.value);
-// // document.getElementById("result").innerHTML = "Please enter a number between" + userMin.value + "and " + userMax.value;
-// document.getElementById("result").innerHTML = "Please enter a number between 1 and 100";
-// }
-// // console.log("User range: " + userMin.value + "to " + userMax.value);
-
-// console.log("Answer:" + answer);
+// 	return range;
 
 // }
 
-
-
-// var reset = document.getElementById("resetButton").value;
-
-// var clear = document.getElementById("clearButton").value;
-
-
-// function disableButtons(){
-
-// if(answer == null){
-// document.getElementById("resetButton").disabled = true;
-// }
-// else{
-// document.getElementById("resetButton").disabled = false;
-// }
-
-
-// // document.getElementById("clearButton").value = true
-
-// // clear.value.disabled = true;
-
-// // if(answer != null){
-
-// // buttonClick();
-// // }
-// // else{
-
-// // reset.disabled = true;
-// // clear.disabled = true;
-// // }
-// console.log("Reset button value: " + resetButton.value);
-// }
-
-// disableButtons();
-
-
-
-//Creating an event on the submit button that will evaluate the user's answers (range, too high, too low, match, etc.)
-// button.addEventListener("click", buttonClick);
-
-// //Resetting all values/displays on the screen
-// function resetValues(){
-
-// reset = document.getElementById("resetButton").innerHTML;
-
-// userGuess.reset();
-// document.getElementById("lastGuess").reset();
-// document.getElementById("output").reset();
-// }
-
-//Event for the reset button to reset values
-// reset.addEventListener("click", resetValues){
-
-// }
-
-
-
-
-//-------------------------------- NOTES:---------------------------
-
-// BAD CODE: var userGuess = parseInt(document.getElementById("userGuess")).value;
-
-// can use document.querySelector("h1") can use h1 (selector) or #id or .class, etc.
-
-//can change HTML input to make sure it's a number instead
-// else if(theNumber == isNaN(userGuess)){
-// alert("Please enter an actual number");
-// return "Please enter an actual number";
-// }
 
 // Use switch statement? 
 
