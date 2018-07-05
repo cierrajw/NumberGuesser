@@ -4,16 +4,13 @@ body{
 span{
 	color: #e6e7e8;
 }
-main{
-}
 #result{
-	margin-top: 0px;
+	margin-top: 0;
 }
 #output{
 	color: #ED458B;
 	font-size: 9rem;
 	margin: 0 auto;
-
 }
 header h1{
 	 background-color: #404041;
