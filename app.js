@@ -9,18 +9,19 @@
 	var theMin = parseInt(userMin.value);
 	var theMax = parseInt(userMax.value);
 
+	if (theMin >= theMax){
+	document.querySelector("#rangeCheck").innerHTML = "Your minimum number must be less than your maximum number";
+	}
+	else{
+	document.querySelector("#rangeCheck").innerHTML = "";
+
 	userGuess.disabled = false;
 	button.disabled = false;
-
 	console.log("User min: " + theMin);
 	console.log("User max: " + theMax);
-	});
-	function activateResetClear(){
-	if(userGuess && userGuess.value){
-	resetButton.disabled = false;
-	clearButton.disabled = false;
-		}
 	}
+	});
+
 	//anon submit button click event function//
 	button.addEventListener("click", function(){
 	event.preventDefault();
@@ -48,7 +49,7 @@
 		else{
 		console.log("BOOM goes the dynamite!!!");
 		document.querySelector("#result").innerHTML = "BOOM goes the dynamite!!!";
-		}
+			}
 		}
 		else{
 		// document.querySelector("#result").innerHTML = "Please enter a number between " + theMin + " and " + theMax;
@@ -56,3 +57,13 @@
 		}		
 		console.log("User guess:" + answer);
 	});
+
+	//function to reset buttons
+	function activateResetClear(){
+
+	if(userGuess && userGuess.value){
+	resetButton.disabled = false;
+	clearButton.disabled = false;
+		}
+
+	}

@@ -14,11 +14,20 @@
 	var theMin = parseInt(userMin.value);
 	var theMax = parseInt(userMax.value);
 
+	if (theMin >= theMax){
+
+	document.querySelector("#rangeCheck").innerHTML = "Your minimum number must be less than your maximum number";
+
+	}
+	else{
+	document.querySelector("#rangeCheck").innerHTML = "";
+
 	userGuess.disabled = false;
 	button.disabled = false;
-
 	console.log("User min: " + theMin);
 	console.log("User max: " + theMax);
+
+	}
 
 	});
 
