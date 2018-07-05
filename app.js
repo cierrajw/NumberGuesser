@@ -31,7 +31,6 @@
 	});
 
 	//anon submit button click event function//
-
 	button.addEventListener("click", function(){
 
 	event.preventDefault();
