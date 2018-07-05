@@ -1,11 +1,6 @@
 body{
 	margin: 0;
 }
-/*section{
-	margin: 0px auto;
-	float: none;
-	display: table;
-}*/
 span{
 	color: #e6e7e8;
 }
@@ -20,11 +15,6 @@ main{
 	margin: 0 auto;
 
 }
-/*section{
-	display: table;
-	border: 1px solid blue;
-	margin: 0 auto;
-}*/
 header h1{
 	 background-color: #404041;
 	 margin-top: 0;

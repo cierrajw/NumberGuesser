@@ -2,53 +2,32 @@
 <html>
 <head>
 	<title>Number Guesser</title>
-
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
 	<header>
-		
 		<h1> Number <span>Guesser</span></h1>
-
 	</header>
-
 <main align="center">
 	<section>
-
 		<p>Set your number range:</p>
 		<input class="inputValue" type="number" name="guess" placeholder="Minimum" id="rangemin"> 
-
 		<span>to</span> 
-
 		<input class="inputValue" type="number" name="guess" placeholder="Maximum" id="rangemax">
 		<br>
-
 		<button id="setRange">Set range</button>
-
-
 		<form>
 			<input class="inputValue type="number" name="guess" placeholder="Enter your guess" id="userGuess" oninput="activateResetClear()"disabled><br>
 			<button type="Submit" value="Submit" id="submitButton" class="buttons" disabled>Submit</button>
 			<button value="clear" class="buttons" id="clearButton" disabled>Clear</button>
 		</form>
-
 			<p id="lastGuess"><p>
-
 			<p id="output"></p>
-
 			<p id="result"></p>
 
 			<button onClick="window.location.reload()" value="clear" class="buttons" id="resetButton" disabled>Reset</button>
-		
 	</section>
-
 <main>
-
-
 <script  type="text/javascript" src="app.js"></script>
 </body>
 </html>
-
-
-<!-- Use specific selectors instead of IDs for specific instances of things in CSS -->
